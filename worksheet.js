@@ -10,6 +10,22 @@
 // vice-versa.
 
 // see test.js for example usage
+function flipColor(colorObj){
+
+	if (colorObj['color'] === "blue"){
+
+		colorObj['color'] = "red"
+		return colorObj
+
+	}
+	
+	else{
+
+		colorObj['color'] = "blue"
+		return colorObj
+	}
+
+}
 
 
 // Part 1
@@ -19,6 +35,25 @@
 // of strings, where each string is a customer's full name.
 
 // see test.js for example usage
+
+function getFullNames(names){
+
+	var listOfNames = []
+
+	for (i=0; i<names.length; i++){
+
+		var nameEntry = ""
+
+		nameEntry += names[i]["first"]
+		nameEntry += " "
+		nameEntry += names[i]["last"]
+
+		listOfNames.push(nameEntry)
+	}
+
+	return listOfNames
+
+}
 
 // Part 2
 
@@ -34,6 +69,33 @@
 
 // see test.js for example usage
 
+function generateDog(dogName){
+
+	var returnString  = "this is a sentence"
+	var dog = {legs: 4, weight: 25, color: "brown", name: dogName, speak: function(returnString){
+
+		var wordEntry = ""
+		var wordsArray = returnString.split(" ")
+		console.log(wordsArray)
+
+		for(i = 0; i < wordsArray.length; i++){
+
+			wordEntry += "r"	
+			
+			wordEntry += wordsArray[i].slice(1, wordsArray[i].length)
+
+			if(i != wordsArray.length-1){
+				wordEntry += " "
+			}
+
+		}
+
+		console.log(wordEntry)
+		return wordEntry
+	}}
+	
+	return dog 
+}
 
 // Part 3
 
@@ -45,10 +107,55 @@
 
 // see test.js for example usage
 
+function pluck(charactersObj, propName){
+
+	var propList = []
+
+	for(i = 0; i < charactersObj.length; i++){
+
+		propList.push(charactersObj[i][propName])
+
+	}
+
+	return propList
+
+}
+
 // Part 4
 
 // Write a function called getCounts that takes a string of text as input and returns
 // an object which stores the frequency of each word in the string.
+
+function getCounts(outsideSentence){
+
+	var words = {}
+	var arraySentence = outsideSentence.split(/([_\W])/)
+	var newArray = []
+
+	for(i = 0; i < arraySentence.length; i++){
+
+		newArray.push(arraySentence[i].toUpperCase())
+	}
+
+	for(i = 0; i < arraySentence.length; i++){
+
+		if (words.hasOwnProperty(arraySentence[i].toLowerCase())){
+
+			words[arraySentence[i].toLowerCase()] += 1
+
+		}
+
+		else{
+
+		words[arraySentence[i].toLowerCase()] = 1
+		
+		}
+	
+	}
+
+	console.log(words['but'])
+	return words 
+}
 
 // Note that your counts should NOT be case-sensitive.
 
